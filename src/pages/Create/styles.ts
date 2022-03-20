@@ -62,7 +62,7 @@ const Label = styled.span`
 `;
 
 const PreviewText = styled.span<{ color: string; background: string }>`
-	font-size: 150px;
+	font-size: 100px;
 	padding: 20px;
 	color: ${(props) => props.color};
 	background-color: ${(props) => props.background};

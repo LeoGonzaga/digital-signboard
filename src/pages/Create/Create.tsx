@@ -1,48 +1,58 @@
+/* eslint-disable radix */
 /* eslint-disable jsx-a11y/no-distracting-elements */
+import { useData } from '@src/stores/useData';
 import { ChangeEvent, useState } from 'react';
+import Marquee from 'react-fast-marquee';
+import { useNavigate } from 'react-router-dom';
 import { Styles } from './styles';
 
 export const Create = (): JSX.Element => {
+	const navigate = useNavigate();
+
 	const [text, setText] = useState<string>('TEXTO');
-	const [speed, setSpeed] = useState<string>(1);
+	const [speed, setSpeed] = useState<number>(40);
 	const [color, setColor] = useState<string>('#fff');
 	const [backgroundColor, setBackGroundColor] = useState<string>('black');
 
 	const handleChangeText = ({ target }: ChangeEvent<HTMLInputElement>) => {
 		setText(target.value);
+		useData.setState({ text: target.value });
 	};
 
 	const handleChangeBackgroundColor = ({
 		target,
 	}: ChangeEvent<HTMLInputElement>) => {
 		setBackGroundColor(target.value);
+		useData.setState({ background: target.value });
 	};
 
 	const handleChangeTextColor = ({ target }: ChangeEvent<HTMLInputElement>) => {
 		setColor(target.value);
+		useData.setState({ color: target.value });
 	};
 
-	const handleChangeSped = ({ target }: ChangeEvent<HTMLInputElement>) => {
-		setSpeed(target.value);
+	const handleChangeSpeed = ({ target }: ChangeEvent<HTMLInputElement>) => {
+		setSpeed(parseInt(target.value, 10));
+		useData.setState({ speed: parseInt(target.value, 10) });
 	};
 
 	const handleCreateSignBoard = () => {
-		console.log(color, backgroundColor, text, speed);
+		navigate('/board');
 	};
 
 	return (
 		<Styles.Container>
 			<p>Preview</p>
-			<marquee
-				bgcolor={backgroundColor}
-				width="100%"
-				scrollamount={speed}
-				direction="right"
+			<Marquee
+				gradient={false}
+				speed={speed * 5}
+				direction="left"
+				style={{ background: backgroundColor }}
 			>
 				<Styles.PreviewText color={color} background={backgroundColor}>
 					{text}
 				</Styles.PreviewText>
-			</marquee>
+			</Marquee>
 			<Styles.Wrapper>
 				<input
 					type="text"
@@ -65,7 +75,7 @@ export const Create = (): JSX.Element => {
 				</Styles.WrapperColors>
 				<Styles.WrapperColors>
 					<Styles.Label>Velocidade:</Styles.Label>
-					<input type="range" value={speed} onChange={handleChangeSped} />
+					<input type="range" value={speed} onChange={handleChangeSpeed} />
 				</Styles.WrapperColors>
 				<button type="submit" onClick={handleCreateSignBoard}>
 					Gerar

@@ -1,17 +1,20 @@
-import { COLORS } from '@src/constants/colors';
 import styled from 'styled-components';
 
-const Container = styled.div`
-	background-color: ${COLORS.details};
+const Container = styled.div<{ background: string }>`
+	background-color: ${(props) => props.background};
+
 	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	overflow-x: hidden;
 `;
 
-const Text = styled.p``;
+const Text = styled.p<{ color: string; background: string }>`
+	font-size: 300px;
+	color: ${(props) => props.color};
+	background-color: ${(props) => props.background};
+	margin-bottom: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+`;
+
 export const Styles = {
 	Container,
 	Text,

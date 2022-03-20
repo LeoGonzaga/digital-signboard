@@ -3,11 +3,13 @@ import create from 'zustand';
 type Props = {
 	text: string;
 	color: string;
+	background: string;
 	speed: number;
 };
 
 export const useData = create<Props>(() => ({
-	text: 'João',
-	color: '18',
-	speed: 1,
+	text: 'texto',
+	color: 'white',
+	background: 'black',
+	speed: 20,
 }));
