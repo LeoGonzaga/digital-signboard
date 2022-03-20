@@ -1,5 +1,6 @@
 /* eslint-disable radix */
 /* eslint-disable jsx-a11y/no-distracting-elements */
+import { COLORS } from '@src/constants/colors';
 import { useData } from '@src/stores/useData';
 import { ChangeEvent, useState } from 'react';
 import Marquee from 'react-fast-marquee';
@@ -12,7 +13,9 @@ export const Create = (): JSX.Element => {
 	const [text, setText] = useState<string>('TEXTO');
 	const [speed, setSpeed] = useState<number>(40);
 	const [color, setColor] = useState<string>('#fff');
-	const [backgroundColor, setBackGroundColor] = useState<string>('black');
+	const [backgroundColor, setBackGroundColor] = useState<string>(
+		COLORS.details
+	);
 
 	const handleChangeText = ({ target }: ChangeEvent<HTMLInputElement>) => {
 		setText(target.value);

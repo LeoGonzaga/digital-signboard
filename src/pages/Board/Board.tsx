@@ -11,11 +11,16 @@ export const Board = (): JSX.Element => {
 				gradient={false}
 				speed={speed * 5}
 				direction="left"
-				style={{ background, display: 'flex', alignItems: 'center' }}
+				style={{
+					background,
+					display: 'flex',
+					alignItems: 'center',
+				}}
 			>
 				<Styles.Text color={color} background={background}>
-					{`${text} ` + ` `}
+					{`${text}`}
 				</Styles.Text>
+				<span> </span>
 			</Marquee>
 		</Styles.Container>
 	);

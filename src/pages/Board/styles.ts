@@ -4,6 +4,9 @@ const Container = styled.div<{ background: string }>`
 	background-color: ${(props) => props.background};
 
 	height: 100vh;
+	span {
+		width: 140px;
+	}
 `;
 
 const Text = styled.p<{ color: string; background: string }>`
