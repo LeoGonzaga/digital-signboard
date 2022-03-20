@@ -1,6 +1,5 @@
 /* eslint-disable no-useless-concat */
 import { useData } from '@src/stores/useData';
-import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { Styles } from './styles';
 
