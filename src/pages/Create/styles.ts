@@ -60,9 +60,14 @@ const Label = styled.span`
 	padding-right: 15px;
 `;
 
-const PreviewText = styled.span`
+const PreviewText = styled.span<{ color: string; background: string }>`
 	font-size: 340px;
-	color: #ffff;
+	color: ${(props) => props.color};
+	background-color: ${(props) => props.background};
+	margin-bottom: 10px;
+	border: 10px solid ${(props) => props.color};
+	stroke-dasharray: 10;
+	font-weight: bold;
 `;
 
 export const Styles = {
