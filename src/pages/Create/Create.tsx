@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-distracting-elements */
 import { ChangeEvent, useState } from 'react';
 import { Styles } from './styles';
 
@@ -32,9 +33,16 @@ export const Create = (): JSX.Element => {
 	return (
 		<Styles.Container>
 			<p>Preview</p>
-			<Styles.PreviewText color={color} background={backgroundColor}>
-				{text}
-			</Styles.PreviewText>
+			<marquee
+				bgcolor={backgroundColor}
+				width="100%"
+				scrollamount={speed}
+				direction="right"
+			>
+				<Styles.PreviewText color={color} background={backgroundColor}>
+					{text}
+				</Styles.PreviewText>
+			</marquee>
 			<Styles.Wrapper>
 				<input
 					type="text"

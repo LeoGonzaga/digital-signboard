@@ -8,7 +8,7 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	overflow: hidden;
+	overflow-x: hidden;
 	p {
 		color: #fff;
 		font-weight: bold;
@@ -42,9 +42,10 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin-top: 10px;
 `;
 const WrapperColors = styled.div`
-	margin: 10px;
+	margin: 5px;
 	display: flex;
 	align-items: center;
 
@@ -61,13 +62,14 @@ const Label = styled.span`
 `;
 
 const PreviewText = styled.span<{ color: string; background: string }>`
-	font-size: 340px;
+	font-size: 150px;
+	padding: 20px;
 	color: ${(props) => props.color};
 	background-color: ${(props) => props.background};
 	margin-bottom: 10px;
-	border: 10px solid ${(props) => props.color};
 	stroke-dasharray: 10;
 	font-weight: bold;
+	text-transform: uppercase;
 `;
 
 export const Styles = {
